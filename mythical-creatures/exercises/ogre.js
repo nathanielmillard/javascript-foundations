@@ -6,9 +6,18 @@ class Ogre {
   }
   encounter(human){
     human.encounter()
+    if (human.encounterCounter % 3 === 0 && human.encounterCounter > 0) {
+      this.swingAt(human)
+    }
   }
   swingAt(human){
     this.swings += 1;
+    if(this.swings % 2 === 0){
+      human.isHit()
+    }
+  }
+  apologize(human){
+    human.knockedOut = false
   }
 }
 
